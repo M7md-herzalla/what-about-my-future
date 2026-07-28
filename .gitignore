@@ -1,0 +1,14 @@
+# Environment variables
+.env
+**/.env
+
+# Node packages
+node_modules/
+**/node_modules/
+
+# Wrangler local files
+.wrangler/
+
+# Logs
+*.log
+npm-debug.log*
