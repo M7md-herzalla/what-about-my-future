@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اسأل الذكاء الاصطناعي - ماذا عن مستقبلي؟</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="footer.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+<style>
+  .ai-hero{
+    background: linear-gradient(150deg, var(--blue-deep) 0%, var(--blue-main) 100%);
+    color: var(--text-on-color);
+    padding: 60px 0 50px;
+    text-align: center;
+  }
+  .ai-hero h1{ color: var(--text-on-color); font-size: clamp(26px,3.6vw,38px); margin-bottom: 12px; }
+  .ai-hero p{ color: rgba(255,255,255,.88); max-width: 620px; margin: 0 auto; font-size: 15.5px; }
+
+  .chat-wrap{
+    max-width: 760px;
+    margin: -30px auto 60px;
+    position: relative;
+    z-index: 5;
+  }
+  .chat-box{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+  }
+  .chat-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--blue-light);
+  }
+  .chat-header .bot-icon{
+    width:40px;height:40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--blue-main), var(--blue-deep));
+    color: var(--text-on-color);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 18px;
+    flex-shrink:0;
+  }
+  .chat-header b{ color: var(--heading-color); font-size: 15px; display:block; }
+  .chat-header span{ color: var(--text-mid); font-size: 12.5px; }
+
+  .chat-messages{
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .msg{
+    max-width: 82%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+  }
+  .msg.user{
+    align-self: flex-start;
+    background: var(--blue-main);
+    color: var(--text-on-color);
+    border-bottom-left-radius: 4px;
+  }
+  .msg.bot{
+    align-self: flex-end;
+    background: var(--blue-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border);
+    border-bottom-right-radius: 4px;
+  }
+  .msg.typing{
+    align-self: flex-end;
+    background: var(--blue-light);
+    border: 1px solid var(--border);
+    display:flex;
+    gap:5px;
+    padding: 14px 18px;
+  }
+  .dot{
+    width:7px;height:7px;border-radius:50%;
+    background: var(--blue-main);
+    animation: blink 1.2s infinite ease-in-out;
+  }
+  .dot:nth-child(2){ animation-delay: .2s; }
+  .dot:nth-child(3){ animation-delay: .4s; }
+  @keyframes blink{ 0%,80%,100%{ opacity:.25; } 40%{ opacity:1; } }
+
+  .chat-input-row{
+    display:flex;
+    gap: 10px;
+    padding: 16px 18px;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .chat-input-row input{
+    flex:1;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14.5px;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--text-dark);
+    outline: none;
+  }
+  .chat-input-row input:focus{ border-color: var(--blue-main); }
+  .chat-input-row button{
+    background: var(--blue-main);
+    color: var(--text-on-color);
+    border: none;
+    border-radius: 10px;
+    padding: 0 22px;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: opacity .15s ease;
+  }
+  .chat-input-row button:disabled{ opacity:.5; cursor:not-allowed; }
+
+  .suggestions{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 18px 16px;
+  }
+  .suggestion-chip{
+    background: var(--blue-light);
+    border: 1px solid var(--border);
+    color: var(--heading-color);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .suggestion-chip:hover{ background: var(--blue-main); color: var(--text-on-color); }
+
+  .error-note{
+    background: #FDECEC;
+    color: #B42318;
+    border: 1px solid #F5C2C0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin: 0 18px 12px;
+    display:none;
+  }
+
+  @media (max-width: 768px){
+    .ai-hero{ padding: 40px 0 40px; }
+    .ai-hero h1{ font-size: clamp(22px,6vw,28px); padding: 0 12px; }
+    .ai-hero p{ font-size: 14px; padding: 0 16px; }
+
+    .chat-wrap{
+      max-width: 100%;
+      margin: -20px 0 30px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .chat-box{
+      height: calc(100vh - 220px);
+      min-height: 420px;
+      border-radius: 14px;
+    }
+    .chat-header{ padding: 12px 14px; gap: 10px; }
+    .chat-header .bot-icon{ width:34px; height:34px; font-size:16px; }
+    .chat-header b{ font-size: 14px; }
+    .chat-header span{ font-size: 11.5px; }
+
+    .chat-messages{ padding: 14px; gap: 10px; }
+    .msg{ max-width: 90%; font-size: 14px; padding: 10px 13px; }
+
+    .chat-input-row{ padding: 10px 12px; gap: 8px; }
+    .chat-input-row input{ font-size: 16px; padding: 10px 12px; }
+    .chat-input-row button{ padding: 0 16px; font-size: 13.5px; }
+
+    .suggestions{ padding: 0 12px 12px; gap: 6px; }
+    .suggestion-chip{ font-size: 11.5px; padding: 6px 11px; }
+  }
+
+  @media (max-width: 420px){
+    .chat-box{ height: calc(100vh - 190px); }
+    .msg{ max-width: 94%; font-size: 13.5px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav-container">
+<div class="logo">
+<div class="logo-icon">؟</div>
+<span>ماذا عن مستقبلي؟</span>
+</div>
+<button class="menu-toggle" id="menuToggle">☰</button>
+<nav id="mainNav">
+<ul>
+<li><a href="index.html">الرئيسية</a></li>
+<li><a href="exams.html">الامتحانات</a></li>
+<li><a href="majors.html">التخصصات</a></li>
+<li><a href="fields.html">الحقول</a></li>
+<li><a href="admission.html">معدلات القبول</a></li>
+<li><a href="ai.html" class="active">AI</a></li>
+</ul>
+</nav>
+<button class="theme-toggle" id="themeToggle">🌙</button>
+</div>
+</header>
+
+<section class="ai-hero">
+<div class="container">
+<h1>اسأل الذكاء الاصطناعي عن مستقبلك المهني 🤖</h1>
+<p>مساعد ذكي ومجاني يجيبك عن أسئلتك حول التخصصات الجامعية، مسارات الدراسة، وفرص العمل في الأردن.</p>
+</div>
+</section>
+<br><br><br>
+<div class="chat-wrap container">
+
+  <div class="chat-box">
+    <div class="chat-header">
+      <div class="bot-icon">🤖</div>
+      <div>
+        <b>مساعد التخصصات الذكي</b>
+        <span>اسأل عن أي تخصص أو مسار مهني</span>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">أهلاً بك 👋 أنا مساعدك الذكي، اسألني عن أي تخصص جامعي، متطلبات القبول، أو فرص العمل بعد التخرج، وسأساعدك بكل سرور.</div>
+    </div>
+
+    <div class="suggestions" id="suggestions">
+      <span class="suggestion-chip">ما هو أفضل تخصص لمن يحب الرياضيات؟</span>
+      <span class="suggestion-chip">ما الفرق بين الهندسة والحاسوب؟</span>
+      <span class="suggestion-chip">تخصصات فيها فرص عمل كبيرة بالأردن؟</span>
+    </div>
+
+    <div class="error-note" id="errorNote">حدث خطأ أثناء الاتصال، حاول مرة أخرى.</div>
+
+    <div class="chat-input-row">
+      <input type="text" id="userInput" placeholder="اكتب سؤالك هنا...">
+      <button id="sendBtn">إرسال</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-box">
+<h3>اكتشف مستقبلك</h3>
+<p>
+منصة تساعد طلاب الصف العاشر على اكتشاف ميولهم الدراسي واختيار التخصص المناسب لهم.
+</p>
+</div>
+<div class="footer-box">
+<h4>روابط سريعة</h4>
+<ul>
+<li><a href="index.html">الرئيسية</a></li>
+<li><a href="exams.html">الامتحانات</a></li>
+<li><a href="majors.html">التخصصات</a></li>
+<li><a href="fields.html">الحقول</a></li>
+<li><a href="admission.html">معدلات القبول</a></li>
+<li><a href="ai.html">AI</a></li>
+</ul>
+</div>
+<div class="footer-box">
+<h4>تواصل معنا</h4>
+<p>📞 +962 7 8848 6041</p>
+<p>📞 +962 7 8065 2040</p>
+<p>📧 whataboutmyfuture@gmail.com</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>جميع الحقوق محفوظة © 2026 | اكتشف مستقبلك</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // ⚠️ غيّر هذا الرابط لرابط الـ Worker الخاص فيك بعد نشره (خطوات النشر بملف README.md)
+  const WORKER_URL = "https://gemini-proxy.whataboutmyfuture.workers.dev";
+
+  const chatMessages = document.getElementById('chatMessages');
+  const userInput = document.getElementById('userInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const suggestions = document.getElementById('suggestions');
+  const errorNote = document.getElementById('errorNote');
+
+  let history = [];
+
+  function addMessage(text, sender){
+    const div = document.createElement('div');
+    div.className = 'msg ' + sender;
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return div;
+  }
+
+  function showTyping(){
+    const div = document.createElement('div');
+    div.className = 'msg typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  function removeTyping(){
+    const el = document.getElementById('typingIndicator');
+    if(el) el.remove();
+  }
+
+  const SYSTEM_PROMPT = 'أنت مساعد ذكي متخصص في إرشاد طلاب الثانوية في الأردن لاختيار التخصص الجامعي المناسب. أجب باللغة العربية بأسلوب واضح ومختصر ومفيد.';
+
+  async function sendMessage(text){
+    if(!text.trim()) return;
+
+    errorNote.style.display = 'none';
+    suggestions.style.display = 'none';
+    addMessage(text, 'user');
+    history.push({ role: 'user', parts: [{ text: text }] });
+    userInput.value = '';
+    sendBtn.disabled = true;
+    showTyping();
+
+    try{
+      // نرسل السؤال لسيرفرنا (الـ Worker) بدل Gemini مباشرة
+      // مفتاح الـ API غير موجود هنا إطلاقًا، وبالتالي غير قابل للسرقة من المتصفح
+      const response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: history
+        })
+      });
+      const data = await response.json();
+      removeTyping();
+
+      if(data.error){
+        throw new Error(data.error.message || 'خطأ من الخادم');
+      }
+
+      const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text
+        || 'عذرًا، لم أتمكن من فهم السؤال، حاول مرة أخرى.';
+
+      addMessage(reply, 'bot');
+      history.push({ role: 'model', parts: [{ text: reply }] });
+    }catch(err){
+      removeTyping();
+      errorNote.textContent = 'حدث خطأ أثناء الاتصال، حاول مرة أخرى.';
+      errorNote.style.display = 'block';
+      console.error('AI proxy error:', err);
+    }finally{
+      sendBtn.disabled = false;
+      userInput.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', () => sendMessage(userInput.value));
+  userInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') sendMessage(userInput.value);
+  });
+  suggestions.addEventListener('click', (e) => {
+    if(e.target.classList.contains('suggestion-chip')){
+      sendMessage(e.target.textContent);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحقول الأكاديمية | ماذا عن مستقبلي؟</title>
+
+    <!-- التنسيقات العامة للموقع -->
+    <link rel="stylesheet" href="fields.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">؟</div>
+                <span>ماذا عن مستقبلي؟</span>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="exams.html">الامتحانات</a></li>
+                    <li><a href="majors.html">التخصصات</a></li>
+                    <li><a href="fields.html" class="active">الحقول</a></li>
+                    <li><a href="admission.html">معدلات القبول</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <section class="page-hero">
+            <h1>اكتشف الحقل المناسب لتخصصك</h1>
+            <p>
+                اكتب اسم التخصص الجامعي لمعرفة الحقل المناسب،
+                المواد المطلوبة، المعدل المتوقع، والتخصصات البديلة.
+            </p>
+        </section>
+
+        <section class="search-section">
+            <div class="search-card">
+                <h2>ابحث عن تخصصك</h2>
+                <div class="search-box">
+                    <!-- حاوية الإدخال + الاقتراحات -->
+                    <div class="input-wrapper">
+                        <input
+                            type="text"
+                            id="majorInput"
+                            placeholder="مثال: الطب البشري"
+                            autocomplete="off"
+                        >
+                        <!-- قائمة الاقتراحات المخصصة -->
+                        <ul id="suggestionsList" class="suggestions-list"></ul>
+                    </div>
+                    <button id="searchBtn" class="btn-primary">بحث</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="result-section">
+            <div id="result" class="result-card"></div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" Position="bottom">
+    <div class="footer-container">
+
+<div class="footer-box">
+<h3>اكتشف مستقبلك</h3>
+<p>
+    منصة تساعد طلاب الصف العاشر على اكتشاف ميولهم الدراسي واختيار التخصص المناسب لهم
+</p>
+
+</div>
+<div class="footer-box">
+<h4>روابط سريعة</h4>
+<ul>
+  
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="exams.html" class="active">الامتحانات</a></li>
+                <li><a href="majors.html">التخصصات</a></li>
+                <li><a href="fields.html">الحقول</a></li>
+                <li><a href="admission.html">معدلات القبول</a></li>
+                <li><a href="ai.html">AI</a></li>
+           
+</ul>
+</div>
+<div class="footer-box">
+<h4>تواصل معنا</h4>
+<p>📞 +962 7 8848 6041</p>
+<p>📞 +962 7 8065 2040</p>
+ <p>📧 whataboutmyfuture@gmail.com</p>
+
+</div>
+</div>
+        <div class="footer-bottom">
+    <p>جميع الحقوق محفوظة © 2026 | اكتشف مستقبلك</p>
+  </div>
+
+</footer>
+
+    <!-- ===== SCRIPTS ===== -->
+     <script src="majors.js"></script>
+    <script src="fieldsConfig.js"></script>
+    
+    
+    
+    <script src="fields.js"></script>
+    
+</body>
+
+</html>

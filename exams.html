@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>الاختبارات | ماذا عن مستقبلي؟</title>
+
+  <link
+    rel="stylesheet"
+    href="./header-css.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./exams-css.css"
+  >
+</head>
+
+<body>
+
+  <!-- =========================
+       Header
+  ========================== -->
+
+  <header>
+    <div class="nav-container">
+
+      <div class="logo">
+        <div class="logo-icon">؟</div>
+        <span>ماذا عن مستقبلي؟</span>
+      </div>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="فتح القائمة"
+      >
+        ☰
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li>
+            <a href="./index.html">
+              الرئيسية
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="./exams.html"
+              class="active"
+            >
+              الاختبارات
+            </a>
+          </li>
+
+          <li>
+            <a href="./majors.html">
+              التخصصات
+            </a>
+          </li>
+
+          <li>
+            <a href="./fields.html">
+              الحقول
+            </a>
+          </li>
+
+          <li>
+            <a href="./admission.html">
+              معدلات القبول
+            </a>
+          </li>
+
+          <li>
+            <a href="./ai.html">
+              AI
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="تبديل الوضع الليلي والنهاري"
+      >
+        🌙
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       Main Content
+  ========================== -->
+
+  <main>
+
+    <section class="exams-section">
+
+      <!-- مقدمة الصفحة -->
+
+      <div class="exams-intro">
+
+        <h1>
+          اكتشف ميولك العلمية واختر تخصصك بثقة
+        </h1>
+
+        <p>
+          أجب عن مجموعة من الاختبارات القصيرة التي تساعدك
+          على فهم ميولك ومهاراتك وسماتك الشخصية وعاداتك
+          الدراسية، وبعد الانتهاء سيتم إعداد تقرير أكاديمي
+          يتضمن التخصصات المقترحة بناءً على نتائجك.
+        </p>
+
+      </div>
+
+
+      <!-- بطاقات الاختبارات ولوحة المعلومات -->
+
+      <div class="exams-content">
+
+        <div class="cards-grid">
+
+          <!-- اختبار الميول المهنية -->
+
+          <div class="exam-card">
+
+            <div class="exam-icon">
+              🧭
+            </div>
+
+            <h3>
+              اختبار الميول المهنية
+            </h3>
+
+            <p>
+              يساعدك على اكتشاف أنواع الأنشطة وبيئات العمل
+              التي تميل إليها.
+            </p>
+
+            <button
+              type="button"
+              onclick="startExam('career')"
+            >
+              ابدأ الاختبار
+            </button>
+
+          </div>
+
+
+          <!-- اختبار المهارات -->
+
+          <div class="exam-card">
+
+            <div class="exam-icon">
+              🧠
+            </div>
+
+            <h3>
+              اختبار المهارات والكفاءات الذاتية
+            </h3>
+
+            <p>
+              يساعدك على تقييم مهاراتك في التحليل والتواصل
+              والتنظيم والتكنولوجيا والعمل الجماعي.
+            </p>
+
+            <button
+              type="button"
+              onclick="startExam('skills')"
+            >
+              ابدأ الاختبار
+            </button>
+
+          </div>
+
+
+          <!-- اختبار الشخصية -->
+
+          <div class="exam-card">
+
+            <div class="exam-icon">
+              👤
+            </div>
+
+            <h3>
+              اختبار السمات الشخصية
+            </h3>
+
+            <p>
+              يساعدك على فهم بعض السمات التي تؤثر في طريقة
+              تفكيرك وعملك وتفاعلك مع الآخرين.
+            </p>
+
+            <button
+              type="button"
+              onclick="startExam('personality')"
+            >
+              ابدأ الاختبار
+            </button>
+
+          </div>
+
+
+          <!-- اختبار عادات التعلم -->
+
+          <div class="exam-card">
+
+            <div class="exam-icon">
+              📚
+            </div>
+
+            <h3>
+              اختبار استراتيجيات وعادات التعلم
+            </h3>
+
+            <p>
+              يقيس الأساليب التي تستخدمها لفهم المعلومات
+              وتذكرها وتطبيقها وتنظيم دراستك.
+            </p>
+
+            <button
+              type="button"
+              onclick="startExam('learning')"
+            >
+              ابدأ الاختبار
+            </button>
+
+          </div>
+
+
+          <!-- اختبار الاهتمامات الدراسية -->
+
+          <div class="exam-card">
+
+            <div class="exam-icon">
+              ⭐
+            </div>
+
+            <h3>
+              اختبار الاهتمامات الدراسية
+            </h3>
+
+            <p>
+              يساعدك على تحديد المجالات والموضوعات الدراسية
+              التي تثير اهتمامك بدرجة أكبر.
+            </p>
+
+            <button
+              type="button"
+              onclick="startExam('interests')"
+            >
+              ابدأ الاختبار
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- لوحة كيفية عمل الاختبارات -->
+
+        <aside class="info-panel">
+
+          <h2>
+            كيف تعمل الاختبارات؟
+          </h2>
+
+          <div class="step">
+            <span>1</span>
+            <p>
+              اختر الاختبار الذي تريد البدء به.
+            </p>
+          </div>
+
+          <div class="step">
+            <span>2</span>
+            <p>
+              اقرأ كل سؤال بعناية واختر الإجابة الأقرب إليك.
+            </p>
+          </div>
+
+          <div class="step">
+            <span>3</span>
+            <p>
+              أكمل جميع الأسئلة ثم اضغط على زر إنهاء الاختبار.
+            </p>
+          </div>
+
+          <div class="step">
+            <span>4</span>
+            <p>
+              بعد إنهاء الاختبارات، سيتم تحليل إجاباتك وإعداد
+              التقرير الأكاديمي.
+            </p>
+          </div>
+
+          <div class="note-box">
+            النتائج عبارة عن مؤشرات واقتراحات تساعدك في اتخاذ
+            القرار، ولا تعتبر بديلاً عن الإرشاد الأكاديمي
+            المتخصص.
+          </div>
+
+        </aside>
+
+      </div>
+
+
+      <!-- =========================
+           منطقة عرض الأسئلة
+      ========================== -->
+
+      <section
+        id="examArea"
+        class="exam-area"
+        aria-live="polite"
+      >
+      </section>
+
+
+      <!-- =========================
+           شاشة التحليل والتحميل
+      ========================== -->
+
+      <section
+        id="analysisLoader"
+        class="analysis-loader"
+        style="display: none;"
+        aria-live="polite"
+      >
+
+        <div class="analysis-loader-box">
+
+          <h2>
+            جاري تحليل نتائجك
+          </h2>
+
+          <p id="analysisStatus">
+            يتم الآن تجهيز بيانات الاختبارات...
+          </p>
+
+          <div class="analysis-progress">
+
+            <div
+              id="analysisProgressBar"
+              class="analysis-progress-bar"
+              style="width: 0%;"
+            >
+            </div>
+
+          </div>
+
+          <span id="analysisProgressText">
+            0%
+          </span>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           نتيجة التحليل
+      ========================== -->
+
+      <section
+        id="analysisResult"
+        class="analysis-result"
+        style="display: none;"
+        aria-live="polite"
+      >
+      </section>
+
+
+      <!-- =========================
+           زر التحليل للتطوير
+      ========================== -->
+
+      <div
+        id="devAiButton"
+        style="display: none;"
+      >
+
+        <button
+          type="button"
+          class="finish-exam-btn"
+          onclick="analyzeResults()"
+        >
+          🧠 تحليل النتائج بالذكاء الاصطناعي
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       Footer
+  ========================== -->
+
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <div class="footer-box">
+
+        <h3>
+          اكتشف مستقبلك
+        </h3>
+
+        <p>
+          منصة تساعد طلاب الصف العاشر على اكتشاف ميولهم
+          الدراسية والتعرف إلى التخصصات المناسبة لهم.
+        </p>
+
+      </div>
+
+
+      <div class="footer-box">
+
+        <h4>
+          روابط سريعة
+        </h4>
+
+        <ul>
+
+          <li>
+            <a href="./index.html">
+              الرئيسية
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="./exams.html"
+              class="active"
+            >
+              الاختبارات
+            </a>
+          </li>
+
+          <li>
+            <a href="./majors.html">
+              التخصصات
+            </a>
+          </li>
+
+          <li>
+            <a href="./fields.html">
+              الحقول
+            </a>
+          </li>
+
+          <li>
+            <a href="./admission.html">
+              معدلات القبول
+            </a>
+          </li>
+
+          <li>
+            <a href="./ai.html">
+              AI
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="footer-box">
+
+        <h4>
+          تواصل معنا
+        </h4>
+
+        <p>
+          📞 +962 792 432 100
+        </p>
+
+        <p>
+          📧 info@future.com
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+        جميع الحقوق محفوظة © 2026 | ماذا عن مستقبلي؟
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JavaScript Files
+       يجب تحميل بنك الأسئلة أولاً
+  ========================== -->
+
+  <script src="./questionBank.js"></script>
+  <script src="./header-js.js"></script>
+
+</body>
+
+</html>

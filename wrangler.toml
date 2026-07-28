@@ -1,0 +1,12 @@
+name = "gemini-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# اختياري: إذا بدك تفعّل حماية عدد الطلبات (rate limiting)
+# 1) أنشئ KV namespace:  wrangler kv namespace create RATE_LIMIT_KV
+# 2) حط الـ id اللي بيطلعلك تحت بدل REPLACE_WITH_KV_ID
+# 3) شيل التعليق (#) عن السطرين تحت
+
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "REPLACE_WITH_KV_ID"

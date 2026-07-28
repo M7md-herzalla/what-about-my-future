@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>معدلات القبول | What About My Future?</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/acceptance.css">
+    <link rel="stylesheet" href="footer.css">
+
+</head>
+
+<body>
+
+    <!--  HEADER  -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span>؟</span>
+                </div>
+                <span class="logo-text">ماذا عن مستقبلي؟</span>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="exams.html">الامتحانات</a></li>
+                    <li><a href="majors.html">التخصصات</a></li>
+                    <li><a href="fields.html">الحقول</a></li>
+                    <li><a href="admission.html" class="active">معدلات القبول</a></li>
+                    <li><a href="ai.html">AI</a></li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <!-- طبقة شفافة فوق الخلفية -->
+            <div class="overlay"></div>
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <h1>مستقبلك يبدأ من اختيارك الصحيح</h1>
+
+                    <h2>اكتشف معدلات القبول الجامعية</h2>
+
+                    <p>
+                        ساعدنا في العثور على التخصص المناسب لك من خلال استعراض الجامعات،
+                        ومعدلات القبول، ورسوم الساعات بطريقة سهلة وسريعة.
+                    </p>
+
+                    <div class="search-box">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="ابحث عن تخصص..."
+                            autocomplete="off" />
+                        <button type="button" id="searchBtn">
+                            <i class="fa-solid fa-magnifying-glass"></i> بحث
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+<br>
+        <!-- Statistics -->
+        <section class="statistics">
+
+            <div class="container">
+
+                <div class="stat-card">
+                    <span class="icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </span>
+                    <h2>10</h2>
+                    <p>جامعة حكومية</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </span>
+                    <h2>14</h2>
+                    <p>جامعة خاصة</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </span>
+                    <h2>500+</h2>
+                    <p>تخصص</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </span>
+                    <h2>400K+</h2>
+                    <p>طالب</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Filters -->
+        <section class="filters">
+
+            <div class="container">
+
+                <div class="filter-box">
+                    <label for="universityFilter">الجامعة</label>
+                    <select id="universityFilter">
+                        <option value="all">جميع الجامعات</option>
+
+                        <!-- الجامعات الحكومية -->
+                        <optgroup label="🏛️ الجامعات الحكومية">
+                            <option value="الجامعة الأردنية">الجامعة الأردنية</option>
+                            <option value="جامعة اليرموك">جامعة اليرموك</option>
+                            <option value="جامعة العلوم والتكنولوجيا الأردنية">جامعة العلوم والتكنولوجيا</option>
+                            <option value="جامعة مؤتة">جامعة مؤتة</option>
+                            <option value="الجامعة الهاشمية">الجامعة الهاشمية</option>
+                            <option value="جامعة آل البيت">جامعة آل البيت</option>
+                            <option value="جامعة البلقاء التطبيقية">جامعة البلقاء التطبيقية</option>
+                            <option value="جامعة الطفيلة التقنية">جامعة الطفيلة التقنية</option>
+                            <option value="جامعة الحسين بن طلال">جامعة الحسين بن طلال</option>
+                            <option value="جامعة العلوم الإسلامية العالمية">جامعة العلوم الإسلامية العالمية</option>
+                        </optgroup>
+
+                        <!-- الجامعات الخاصة -->
+                        <optgroup label="🏫 الجامعات الخاصة">
+                            <option value="جامعة عمان الأهلية">جامعة عمان الأهلية</option>
+                            <option value="جامعة العلوم التطبيقية الخاصة">جامعة العلوم التطبيقية الخاصة</option>
+                            <option value="جامعة الزيتونة الأردنية">جامعة الزيتونة الأردنية</option>
+                            <option value="جامعة الإسراء">جامعة الإسراء</option>
+                            <option value="جامعة فيلادلفيا">جامعة فيلادلفيا</option>
+                            <option value="جامعة جدارا">جامعة جدارا</option>
+                            <option value="جامعة جرش الخاصة">جامعة جرش الخاصة</option>
+                            <option value="جامعة البترا">جامعة البترا</option>
+                            <option value="جامعة الشرق الأوسط">جامعة الشرق الأوسط</option>
+                            <option value="جامعة الزرقاء">جامعة الزرقاء</option>
+                            <option value="جامعة عمان العربية">جامعة عمان العربية</option>
+                            <option value="جامعة إربد الأهلية">جامعة إربد الأهلية</option>
+                            <option value="جامعة عجلون الوطنية">جامعة عجلون الوطنية</option>
+                            <option value="جامعة العقبة للتكنولوجيا">جامعة العقبة للتكنولوجيا</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="filter-box">
+                    <label for="collegeFilter">الكلية</label>
+                    <select id="collegeFilter">
+                        <option value="all">جميع الكليات</option>
+                        <option value="كلية الطب">كلية الطب</option>
+                        <option value="كلية طب الأسنان">كلية طب الأسنان</option>
+                        <option value="كلية الصيدلة">كلية الصيدلة</option>
+                        <option value="كلية التمريض">كلية التمريض</option>
+                        <option value="كلية العلوم الطبية المساندة">كلية العلوم الطبية المساندة</option>
+                        <option value="كلية الهندسة">كلية الهندسة</option>
+                        <option value="كلية العمارة والتصميم">كلية العمارة والتصميم</option>
+                        <option value="كلية تكنولوجيا المعلومات">كلية تكنولوجيا المعلومات</option>
+                        <option value="كلية العلوم">كلية العلوم</option>
+                        <option value="كلية الزراعة">كلية الزراعة</option>
+                        <option value="كلية الأعمال">كلية الأعمال</option>
+                        <option value="كلية الحقوق">كلية الحقوق</option>
+                        <option value="كلية الشريعة">كلية الشريعة</option>
+                        <option value="كلية الآداب">كلية الآداب</option>
+                        <option value="كلية اللغات">كلية اللغات</option>
+                        <option value="كلية العلوم التربوية">كلية العلوم التربوية</option>
+                        <option value="كلية الإعلام">كلية الإعلام</option>
+                        <option value="كلية الفنون والتصميم">كلية الفنون والتصميم</option>
+                        <option value="كلية السياحة والآثار">كلية السياحة والآثار</option>
+                        <option value="كلية التربية الرياضية">كلية التربية الرياضية</option>
+                    </select>
+                </div>
+
+                <div class="filter-box">
+                    <label for="sortFilter">ترتيب النتائج</label>
+                    <select id="sortFilter">
+                        <option value="high">الأعلى معدل</option>
+                        <option value="low">الأقل معدل</option>
+                    </select>
+                </div>
+
+                <button id="resetBtn" class="reset-btn" type="button">إعادة تعيين</button>
+
+            </div>
+
+        </section>
+
+        <!-- Results -->
+        <section class="universities">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <h2>نتائج البحث</h2>
+                    <p>أشهر الجامعات والتخصصات المتوفرة</p>
+                </div>
+
+                <div id="cardsContainer"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>اكتشف مستقبلك</h3>
+
+<p>
+منصة تساعد طلاب الصف العاشر على اكتشاف ميولهم الدراسي واختيار التخصص المناسب لهم
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h4>روابط سريعة</h4>
+
+<ul>
+
+<li><a href="index.html">الرئيسية</a></li>
+<li><a href="exams.html">الامتحانات</a></li>
+<li><a href="majors.html">التخصصات</a></li>
+<li><a href="fields.html">الحقول</a></li>
+<li><a href="admission.html">معدلات القبول</a></li>
+<li><a href="ai.html">AI</a></li>
+
+</ul>
+
+</div>
+
+<div class="footer-box">
+
+<h4>تواصل معنا</h4>
+
+<p>📞 +962 7 8848 6041</p>
+<p>📞 +962 7 8065 2040</p>
+<p>📧 whataboutmyfuture@gmail.com</p>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>جميع الحقوق محفوظة © 2026 | اكتشف مستقبلك</p>
+</div>
+
+</footer>
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/acceptance.js"></script>
+
+</body>
+
+</html>
